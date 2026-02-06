@@ -1,0 +1,42 @@
+.marquee-section {
+  padding: 4rem 0;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.marquee {
+  display: flex;
+  animation: marqueeScroll 10s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2rem, 5vw, 4rem);
+  padding: 0 4rem;
+  color: var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.marquee-item::after {
+  content: '★';
+  color: var(--neon-magenta);
+}
+
+@media (max-width: 640px) {
+  .marquee-item {
+    padding: 0 2rem;
+  }
+}
+

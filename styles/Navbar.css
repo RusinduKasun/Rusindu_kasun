@@ -1,0 +1,147 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  transition: padding 0.3s;
+}
+
+nav.scrolled {
+  padding: 1rem 5%;
+}
+
+.logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.15em;
+  position: relative;
+  text-decoration: none;
+}
+
+.logo::after {
+  content: '●';
+  position: absolute;
+  right: -15px;
+  top: 0;
+  color: var(--neon-magenta);
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle span {
+  width: 30px;
+  height: 3px;
+  background: var(--neon-cyan);
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.nav-menu a {
+  font-family: 'Space Mono', monospace;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-menu a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+  transition: width 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--neon-cyan);
+}
+
+.nav-menu a:hover::before,
+.nav-menu a.active::before {
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 3rem 2rem;
+    gap: 2rem;
+    border-left: 1px solid rgba(0, 255, 255, 0.2);
+    transition: right 0.4s;
+    width: 70%;
+    max-width: 300px;
+    height: calc(100vh - 80px);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  nav {
+    padding: 1rem 5%;
+  }
+}
+

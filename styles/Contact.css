@@ -1,0 +1,109 @@
+.contact-page {
+  padding: 12rem 5% 8rem;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3rem, 10vw, 8rem);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.contact-title .highlight {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta), var(--neon-orange));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientWave 4s ease infinite;
+}
+
+@keyframes gradientWave {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.contact-text {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+
+.contact-methods {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.contact-method {
+  padding: 1.5rem 3rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s;
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+}
+
+.contact-method:hover {
+  background: var(--neon-cyan);
+  color: var(--deep-black);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 0, 255, 0.3);
+  color: var(--neon-magenta);
+  text-decoration: none;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.social-link:hover {
+  background: var(--neon-magenta);
+  color: var(--deep-black);
+  transform: translateY(-5px) rotate(45deg);
+  box-shadow: 0 15px 40px rgba(255, 0, 255, 0.4);
+}
+
+@media (max-width: 968px) {
+  .contact-methods {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
